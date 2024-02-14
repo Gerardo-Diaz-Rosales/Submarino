@@ -9,30 +9,38 @@ import Menu from "./screens/Menu";
 import Login from "./screens/Login";
 import StackScreen from "./screens/StackScreen";
 import Herramientas from "./screens/Herramientas";
+import Home from "./screens/Home";
 
 //Creamos la constante de stack
 
 const MenuStackNavigator = createNativeStackNavigator();
 
-function MyStack (){
-    return(
+function MyStack() {
+    return (
         <MenuStackNavigator.Navigator
-        initialRouteName="NeptunExplorer"
+            initialRouteName="NeptunExplorer"
         >
 
             <MenuStackNavigator.Screen
-            name="NeptunExplorer"
-            component={Menu}
+                name="NeptunExplorer"
+                component={Menu}
             >
             </MenuStackNavigator.Screen>
             <MenuStackNavigator.Screen
-            name="Nosotros"
-            component={StackScreen}
+                name="Nosotros"
+                component={StackScreen}
             >
             </MenuStackNavigator.Screen>
+
             <MenuStackNavigator.Screen
-            name="Configuración"
-            component={Herramientas}
+                name="Configuración"
+                component={Herramientas}
+            >
+            </MenuStackNavigator.Screen>
+
+            <MenuStackNavigator.Screen
+                name="Home"
+                component={Home}
             >
             </MenuStackNavigator.Screen>
 
@@ -56,7 +64,7 @@ function MyTabs() {
                 name="Inicio"
                 component={MyStack}
                 options={{
-                    tabBarIcon: ({color, size}) => (
+                    tabBarIcon: ({ color, size }) => (
                         <MaterialCommunityIcons
                             name="card-bulleted"
                             color={color}
@@ -68,7 +76,7 @@ function MyTabs() {
                 name="Registro"
                 component={Login}
                 options={{
-                    tabBarIcon: ({color, size}) => (
+                    tabBarIcon: ({ color, size }) => (
                         <MaterialCommunityIcons
                             name="badge-account-horizontal"
                             color={color}
@@ -77,13 +85,26 @@ function MyTabs() {
                     )
                 }}
             ></Tab.Screen>
-                        <Tab.Screen
+            <Tab.Screen
                 name="Herramientas"
                 component={Herramientas}
                 options={{
-                    tabBarIcon: ({color, size}) => (
+                    tabBarIcon: ({ color, size }) => (
                         <MaterialCommunityIcons
                             name="archive-cog"
+                            color={color}
+                            size={size}
+                        />
+                    )
+                }}></Tab.Screen>
+
+            <Tab.Screen
+                name="Hogar"
+                component={MyStack}
+                options={{
+                    tabBarIcon: ({ color, size }) => (
+                        <MaterialCommunityIcons
+                            name="card-bulleted"
                             color={color}
                             size={size}
                         />
